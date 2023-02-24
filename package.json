@@ -29,6 +29,7 @@
     "@editorjs/table": "2.0.1",
     "@editorjs/warning": "1.2.0",
     "classnames": "^2.3.1",
+    "editorjs-text-color-plugin": "^1.13.1",
     "get-file-object-from-local-path": "1.0.2",
     "open-graph-scraper": "4.9.2",
     "react-editor-js": "1.10.0"
@@ -77,5 +78,8 @@
     "editor-js",
     "wysiwyg"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "volta": {
+    "node": "16.19.1"
+  }
 }
