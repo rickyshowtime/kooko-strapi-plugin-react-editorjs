@@ -3,7 +3,6 @@ import EditorJS from 'react-editor-js';
 import Embed from '@editorjs/embed'
 import Table from '@editorjs/table'
 import List from '@editorjs/list'
-import Warning from '@editorjs/warning'
 import Code from '@editorjs/code'
 import LinkTool from '@editorjs/link'
 import Raw from '@editorjs/raw'
