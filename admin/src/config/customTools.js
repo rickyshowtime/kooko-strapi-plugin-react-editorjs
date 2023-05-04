@@ -1,5 +1,5 @@
 import PluginId from '../pluginId'
-
+import EditorJS from 'react-editor-js';
 import Embed from '@editorjs/embed'
 import Table from '@editorjs/table'
 import List from '@editorjs/list'
@@ -14,6 +14,11 @@ import CheckList from '@editorjs/checklist'
 import Delimiter from '@editorjs/delimiter'
 import InlineCode from '@editorjs/inline-code'
 import ColorPlugin from "editorjs-text-color-plugin"
+import AttachesTool from '@editorjs/attaches';
+import editorjsColumns from '@calumk/editorjs-columns';
+import ToggleBlock from 'editorjs-toggle-block';
+import Carousel from 'editorjs-carousel';
+import Alert from 'editorjs-alert';
 
 const customTools = {
   embed: Embed,
@@ -21,23 +26,21 @@ const customTools = {
     class: Table,
     inlineToolbar: true,
   },
+  attaches: {
+    class: AttachesTool,
+    config: {
+      endpoint: 'localhost:1337/api/upload'
+    }
+  },
   list: {
     class: List,
     inlineToolbar: true,
-  },
-  warning: {
-    class: Warning,
-    inlineToolbar: true,
-    config: {
-      titlePlaceholder: 'Title',
-      messagePlaceholder: 'Message',
-    },
   },
   code: Code,
   LinkTool: {
     class: LinkTool,
     config: {
-      endpoint: `/api/${PluginId}/link`,
+      endpoint: `/api/link`,
     },
   },
   raw: {
@@ -81,6 +84,34 @@ const customTools = {
   },
   delimiter: Delimiter,
   inlineCode: InlineCode,
+  toggle: {
+    class: ToggleBlock,
+    inlineToolbar: true,
+  },
+  carousel: {
+    class: Carousel,
+    config: {
+      endpoints: {
+        byFile: "localhost:1337/api/upload",
+      }
+    }
+  },
+  alert: Alert,
 }
 
-export default customTools
+const column_tools = {
+  ...customTools
+}
+
+const tools = {
+  ...customTools,
+  columns : {
+    class : editorjsColumns,
+    EditorJsLibrary : EditorJS, // Pass the library instance to the columns instance.
+    config : {
+      tools : column_tools, // IMPORTANT! ref the column_tools
+    }
+  },
+}
+
+export default tools
