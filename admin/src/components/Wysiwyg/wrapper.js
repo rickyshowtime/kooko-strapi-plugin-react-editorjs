@@ -71,6 +71,9 @@ const Wrapper = styled(Box)`
       color: #444;
       line-height: 1.5;
     }
+    .colorPlugin xy-color-picker {
+      display: contents !important;
+    }
 `;
 
 export default Wrapper;
