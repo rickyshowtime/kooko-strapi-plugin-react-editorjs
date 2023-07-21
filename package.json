@@ -64,8 +64,9 @@
     }
   ],
   "engines": {
-    "node": ">=10.16.0 <=18.x.x",
-    "npm": ">=6.0.0"
+    "node": "18.x.x",
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.22.19"
   },
   "repository": {
     "type": "git",
@@ -82,6 +83,7 @@
   ],
   "license": "MIT",
   "volta": {
-    "node": "18.16.0"
+    "node": "18.16.0",
+    "yarn": "1.22.19"
   }
 }
